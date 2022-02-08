@@ -1,8 +1,8 @@
 #include "OOP.h"
 
-void Skobina::Object_oriented::Input(ifstream& fin)
+void Skobina::Object_oriented::Input(ifstream& fin) //метод чтения данных из файла
 {
-	Skobina::Language::Input(fin);
+	Skobina::Language::Input(fin); //получили "год"
 	unsigned short int temp;
 	fin >> temp;
 	switch (temp)
@@ -38,5 +38,5 @@ void Skobina::Object_oriented::Output(ofstream& fout)
 	default:
 		break;
 	}
-	Skobina::Language::Output(fout);
+	Skobina::Language::Output(fout); //печатаем "год"
 }

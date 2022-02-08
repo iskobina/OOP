@@ -20,13 +20,13 @@ int main(int argc, char* argv[])
 	cout << "Start" << endl;
 
 	LinkedList list;
-	list.LinkedList_Input(fin);
+	list.LinkedList_Input(fin); //создание связного списка и его заполнение
 	fout << "Filled container." << endl;
-	list.LinkedList_Output(fout);
+	list.LinkedList_Output(fout); //вывод в файл
 
-	list.~LinkedList();
+	list.~LinkedList(); //вызвали деструктор
 	fout << "Empty container." << endl;
-	list.LinkedList_Output(fout);
+	list.LinkedList_Output(fout); //вывод
 
 	cout << "Stop" << endl;
 	return 0;

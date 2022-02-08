@@ -6,10 +6,10 @@
 
 namespace Skobina
 {
-	class Proc : public Language
+	class Proc : public Language //класс наследует "язык"
 	{
 	public:
-		Proc() {/**/ }
+		Proc() {/**/ } //пустой конструктор
 		void Input(ifstream& fin);
 		void Output(ofstream& fout);
 	private:

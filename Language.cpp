@@ -10,7 +10,7 @@ Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 	switch (temp)
 	{
 	case 1:
-		language = new Proc;
+		language = new Proc; 
 		break;
 	case 2:
 		language = new Object_oriented;
@@ -18,7 +18,7 @@ Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 	default:
 		return 0;
 	}
-	language->Input(fin);
+	language->Input(fin); //переопределенный input (либо input из Proc, либо input из OOP)
 	return language;
 }
 

@@ -1,8 +1,8 @@
 #include "Proc.h"
 
-void Skobina::Proc::Input(ifstream& fin)
+void Skobina::Proc::Input(ifstream& fin) //метод чтение из файла
 {
-	Skobina::Language::Input(fin);
+	Skobina::Language::Input(fin); //считали "год"
 	fin >> abstract_type;
 }
 
@@ -17,5 +17,5 @@ void Skobina::Proc::Output(ofstream& fout)
 	{
 		fout << "missing, ";
 	}
-	Skobina::Language::Output(fout);
+	Skobina::Language::Output(fout); //записали "год"
 }

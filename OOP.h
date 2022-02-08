@@ -6,11 +6,11 @@
 
 namespace Skobina
 {
-	class Object_oriented : public Language
+	class Object_oriented : public Language //класс является потомком "Языка"
 	{
 	public:
-		Object_oriented() {/**/ }
-		void Input(ifstream& fin);
+		Object_oriented() {/**/ } //пустой конструктор по умолчанию
+		void Input(ifstream& fin); //метод класса
 		void Output(ofstream& fout);
 	private:
 		enum inheritance

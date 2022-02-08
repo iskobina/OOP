@@ -8,15 +8,15 @@ namespace Skobina
 {
 	class LinkedList
 	{
-		struct Node
+		struct Node //структура узла в связном списке
 		{
 			Language* language;
 			Node* Next;
 			Node* Prev;
 		};
 	public:
-		LinkedList();
-		~LinkedList();
+		LinkedList(); //конструктор
+		~LinkedList(); //деструктор
 
 		void LinkedList_Input(ifstream& fin);
 		void LinkedList_Output(ofstream& fout);

@@ -1,13 +1,13 @@
 #include "LinkedList.h"
 
-Skobina::LinkedList::LinkedList()
+Skobina::LinkedList::LinkedList() //конструктор по умолчанию
 {
 	First = NULL;
 	Last = NULL;
 	SizeList = 0;
 }
 
-Skobina::LinkedList::~LinkedList()
+Skobina::LinkedList::~LinkedList() //деструктор
 {
 	Node* Temp = NULL;
 	while (Last != NULL)
@@ -31,7 +31,7 @@ void Skobina::LinkedList::LinkedList_Input(ifstream& fin)
 
 		Temp->Next = NULL;
 
-		Temp->language = Language::Language_Input(fin);
+		Temp->language = Language::Language_Input(fin); //заполняем данные
 
 		++SizeList;
 
@@ -51,13 +51,13 @@ void Skobina::LinkedList::LinkedList_Input(ifstream& fin)
 
 void Skobina::LinkedList::LinkedList_Output(ofstream& fout)
 {
-	Node* current = First;
+	Node* Temp = First; //создаем указатель на первый элемент
 	fout << "Container contains " << SizeList << " elements." << endl;
 
 	for (size_t i = 0; i < SizeList; i++)
 	{
 		fout << i + 1 << ": ";
-		current->language->Output(fout);
-		current = current->Next;
+		Temp->language->Output(fout);
+		Temp = Temp->Next;
 	}
 }
