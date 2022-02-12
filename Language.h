@@ -18,6 +18,7 @@ namespace Skobina
 		virtual void Output(ofstream& fout); // метод записи "год"
 	private:
 		unsigned short int year_of_development;
+		int reference;
 	};
 }
 
