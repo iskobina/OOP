@@ -16,6 +16,8 @@ namespace Skobina
 		static Language* Language_Input(ifstream& fin); // метод получения данных об объекте
 		virtual void Input(ifstream& fin); // метод чтения "год"
 		virtual void Output(ofstream& fout); // метод записи "год"
+
+		virtual void Only_Procedural(ofstream& fout);
 	private:
 		unsigned short int year_of_development;
 	};

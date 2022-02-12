@@ -31,3 +31,8 @@ void Skobina::Language::Output(ofstream& fout)
 {
 	fout << "Year of development = " << year_of_development << endl;
 }
+
+void Skobina::Language::Only_Procedural(ofstream& fout)
+{
+	fout << endl;
+}

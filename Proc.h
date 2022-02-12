@@ -12,6 +12,8 @@ namespace Skobina
 		Proc() {/**/ } //пустой конструктор
 		void Input(ifstream& fin);
 		void Output(ofstream& fout);
+
+		void Only_Procedural(ofstream& fout);
 	private:
 		bool abstract_type;
 	};
