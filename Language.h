@@ -18,6 +18,7 @@ namespace Skobina
 		virtual void Output(ofstream& fout); // метод записи "год"
 
 		int Past_Years();
+		bool Compare(Language& second);
 	private:
 		unsigned short int year_of_development;
 	};
