@@ -64,9 +64,9 @@ void Skobina::LinkedList::LinkedList_Output(ofstream& fout)
 	}
 }
 
-void Skobina::LinkedList::Sort_List()
+void Skobina::LinkedList::Sort_List() //метод ссортировки
 {
-	if (SizeList < 2)
+	if (SizeList < 2) //сортировать список из 1 элемента нет смысла
 		return;
 
 	Node* current = First;
@@ -79,14 +79,14 @@ void Skobina::LinkedList::Sort_List()
 		flag = false;
 		for (size_t i = 0; i < (SizeList - 1); ++i)
 		{
-			if (current->language->Compare(*current->Next->language))
+			if (current->language->Compare(*current->Next->language)) //если функция compare возвращает true (если необходимо поменять местами)
 			{
-				Swap(current, current->Next);
+				Swap(current, current->Next); //передаем текущий и следующий элемент
 				flag = true;
 			}
 			else
 			{
-				current = current->Next;
+				current = current->Next; //переход на следующий элемент
 			}
 		}
 	} while (flag);
@@ -94,7 +94,7 @@ void Skobina::LinkedList::Sort_List()
 
 void Skobina::LinkedList::Swap(Node* first, Node* second)
 {
-	if ((first->Prev == NULL) && (second->Next == NULL))
+	if ((first->Prev == NULL) && (second->Next == NULL)) //если всего 2 элемента в списке
 	{
 		First = second;
 		Last = first;
@@ -104,7 +104,7 @@ void Skobina::LinkedList::Swap(Node* first, Node* second)
 		second->Prev = NULL;
 		return;
 	}
-	if ((first->Prev == NULL) && (second->Next != NULL))
+	if ((first->Prev == NULL) && (second->Next != NULL)) //если в списке более 2-ух элементов, и мы рассматриваем 1 и 2 элементы
 	{
 		first->Next = second->Next;
 		first->Prev = second;
@@ -114,7 +114,7 @@ void Skobina::LinkedList::Swap(Node* first, Node* second)
 		First = second;
 		return;
 	}
-	if ((first->Prev != NULL) && (second->Next == NULL))
+	if ((first->Prev != NULL) && (second->Next == NULL)) //если в списке более 2-ух элементов, и мы рассматриваем предпоследний и последний
 	{
 		second->Prev = first->Prev;
 		first->Prev = second;
@@ -124,7 +124,7 @@ void Skobina::LinkedList::Swap(Node* first, Node* second)
 		Last = first;
 		return;
 	}
-	if ((first->Prev != NULL) && (second->Next != NULL))
+	if ((first->Prev != NULL) && (second->Next != NULL)) //если в списке более 2-ух элементов и мы где-то по-середине
 	{
 		first->Next = second->Next;
 		second->Prev = first->Prev;
