@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 	fout << "Filled container." << endl;
 	list.LinkedList_Output(fout); //вывод в файл
 
-	list.Only_Procedural(fout);
+	list.Only_Procedural(fout); //вызов метод фильтрованного вывода
 
 	list.~LinkedList(); //вызвали деструктор
 	fout << "Empty container." << endl;
