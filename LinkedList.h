@@ -20,10 +20,14 @@ namespace Skobina
 
 		void LinkedList_Input(ifstream& fin);
 		void LinkedList_Output(ofstream& fout);
+
+		void Sort_List(); //метод сортировки
 	private:
 		Node* First;
 		Node* Last;
 		size_t SizeList;
+
+		void Swap(Node* first, Node* second);
 	};
 }
 

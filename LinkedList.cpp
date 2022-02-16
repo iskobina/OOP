@@ -58,6 +58,80 @@ void Skobina::LinkedList::LinkedList_Output(ofstream& fout)
 	{
 		fout << i + 1 << ": ";
 		Temp->language->Output(fout);
+		fout << "The number of years that have passed since the year the language was created = "
+			<< Temp->language->Past_Years() << endl << endl;
 		Temp = Temp->Next;
+	}
+}
+
+void Skobina::LinkedList::Sort_List() //метод ссортировки
+{
+	if (SizeList < 2) //сортировать список из 1 элемента нет смысла
+		return;
+
+	Node* current = First;
+
+	bool flag = false;
+
+	do
+	{
+		current = First;
+		flag = false;
+		for (size_t i = 0; i < (SizeList - 1); ++i)
+		{
+			if (current->language->Compare(*current->Next->language)) //если функция compare возвращает true (если необходимо поменять местами)
+			{
+				Swap(current, current->Next); //передаем текущий и следующий элемент
+				flag = true;
+			}
+			else
+			{
+				current = current->Next; //переход на следующий элемент
+			}
+		}
+	} while (flag);
+}
+
+void Skobina::LinkedList::Swap(Node* first, Node* second)
+{
+	if ((first->Prev == NULL) && (second->Next == NULL)) //если всего 2 элемента в списке
+	{
+		First = second;
+		Last = first;
+		first->Prev = second;
+		second->Next = first;
+		first->Next = NULL;
+		second->Prev = NULL;
+		return;
+	}
+	if ((first->Prev == NULL) && (second->Next != NULL)) //если в списке более 2-ух элементов, и мы рассматриваем 1 и 2 элементы
+	{
+		first->Next = second->Next;
+		first->Prev = second;
+		second->Next->Prev = first;
+		second->Next = first;
+		second->Prev = NULL;
+		First = second;
+		return;
+	}
+	if ((first->Prev != NULL) && (second->Next == NULL)) //если в списке более 2-ух элементов, и мы рассматриваем предпоследний и последний
+	{
+		second->Prev = first->Prev;
+		first->Prev = second;
+		first->Next = NULL;
+		second->Next = first;
+		second->Prev->Next = second;
+		Last = first;
+		return;
+	}
+	if ((first->Prev != NULL) && (second->Next != NULL)) //если в списке более 2-ух элементов и мы где-то по-середине
+	{
+		first->Next = second->Next;
+		second->Prev = first->Prev;
+		second->Next = first;
+		first->Prev = second;
+		second->Prev->Next = second;
+		first->Next->Prev = first;
+		return;
 	}
 }
