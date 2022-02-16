@@ -34,10 +34,12 @@ Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 void Skobina::Language::Input(ifstream& fin)
 {
 	fin >> year_of_development;
+	fin >> reference;
 }
 
 void Skobina::Language::Output(ofstream& fout)
 {
+<<<<<<< HEAD
 	fout << "Year of development = " << year_of_development << endl;
 }
 
@@ -51,4 +53,8 @@ int Skobina::Language::Past_Years()
 bool Skobina::Language::Compare(Language& second)
 {
 	return Past_Years() < second.Past_Years();
+=======
+	fout << "Year of development = " << year_of_development
+		<< ", The number of references of this language on the Internet = " << reference << endl;
+>>>>>>> lab2.3
 }

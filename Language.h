@@ -21,6 +21,7 @@ namespace Skobina
 		bool Compare(Language& second);
 	private:
 		unsigned short int year_of_development;
+		int reference;
 	};
 }
 
