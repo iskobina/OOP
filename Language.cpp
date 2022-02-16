@@ -2,11 +2,8 @@
 #include "Language.h"
 #include "Proc.h"
 #include "OOP.h"
-<<<<<<< HEAD
 #include "Functional.h"
-=======
 #include <ctime>
->>>>>>> lab2.2
 
 Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 {
@@ -39,11 +36,10 @@ void Skobina::Language::Input(ifstream& fin)
 
 void Skobina::Language::Output(ofstream& fout)
 {
-<<<<<<< HEAD
-	fout << "Year of development = " << year_of_development << endl;
+	fout << "Year of development = " << year_of_development
+	<< ", The number of references of this language on the Internet = " << reference << endl;
 }
 
-<<<<<<< HEAD
 int Skobina::Language::Past_Years()
 {
 	time_t now = time(NULL);
@@ -54,13 +50,9 @@ int Skobina::Language::Past_Years()
 bool Skobina::Language::Compare(Language& second)
 {
 	return Past_Years() < second.Past_Years();
-=======
-	fout << "Year of development = " << year_of_development
-		<< ", The number of references of this language on the Internet = " << reference << endl;
->>>>>>> lab2.3
-=======
+}
+
 void Skobina::Language::Only_Procedural(ofstream& fout)
 {
 	fout << endl;
->>>>>>> lab2.5
 }
