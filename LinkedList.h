@@ -21,7 +21,11 @@ namespace Skobina
 		void LinkedList_Input(ifstream& fin);
 		void LinkedList_Output(ofstream& fout);
 
+<<<<<<< HEAD
 		void Sort_List(); //метод сортировки
+=======
+		void Only_Procedural(ofstream& fout);
+>>>>>>> lab2.5
 	private:
 		Node* First;
 		Node* Last;

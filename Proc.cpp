@@ -19,3 +19,8 @@ void Skobina::Proc::Output(ofstream& fout)
 	}
 	Skobina::Language::Output(fout); //записали "год"
 }
+
+void Skobina::Proc::Only_Procedural(ofstream& fout)
+{
+	Skobina::Proc::Output(fout);
+}

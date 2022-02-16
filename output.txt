@@ -48,6 +48,7 @@ The number of years that have passed since the year the language was created = 2
 The number of years that have passed since the year the language was created = 13
 
 7: It is Object-oriented programming language: Inheritance is multiple, Year of development = 2020
+<<<<<<< HEAD
 The number of years that have passed since the year the language was created = 2
 
 >>>>>>> lab2.2
@@ -61,5 +62,17 @@ Container contains 7 elements.
 6: It is Object-oriented programming language: Inheritance is multiple, Year of development = 2009, The number of references of this language on the Internet = 764
 7: It is Object-oriented programming language: Inheritance is multiple, Year of development = 2020, The number of references of this language on the Internet = 37354
 >>>>>>> lab2.3
+=======
+
+Only Procedural languages.
+1: 
+2: It is Procedural programming language: Abstract data types is missing, Year of development = 1990
+3: It is Procedural programming language: Abstract data types is present, Year of development = 1979
+4: 
+5: 
+6: 
+7: 
+
+>>>>>>> lab2.5
 Empty container.
 Container contains 0 elements.

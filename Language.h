@@ -17,8 +17,12 @@ namespace Skobina
 		virtual void Input(ifstream& fin); // метод чтения "год"
 		virtual void Output(ofstream& fout); // метод записи "год"
 
+<<<<<<< HEAD
 		int Past_Years();
 		bool Compare(Language& second);
+=======
+		virtual void Only_Procedural(ofstream& fout);
+>>>>>>> lab2.5
 	private:
 		unsigned short int year_of_development;
 		int reference;

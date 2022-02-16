@@ -43,6 +43,7 @@ void Skobina::Language::Output(ofstream& fout)
 	fout << "Year of development = " << year_of_development << endl;
 }
 
+<<<<<<< HEAD
 int Skobina::Language::Past_Years()
 {
 	time_t now = time(NULL);
@@ -57,4 +58,9 @@ bool Skobina::Language::Compare(Language& second)
 	fout << "Year of development = " << year_of_development
 		<< ", The number of references of this language on the Internet = " << reference << endl;
 >>>>>>> lab2.3
+=======
+void Skobina::Language::Only_Procedural(ofstream& fout)
+{
+	fout << endl;
+>>>>>>> lab2.5
 }

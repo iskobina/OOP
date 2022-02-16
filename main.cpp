@@ -24,9 +24,13 @@ int main(int argc, char* argv[])
 	fout << "Filled container." << endl;
 	list.LinkedList_Output(fout); //вывод в файл
 
+<<<<<<< HEAD
 	fout << endl << "Sorted Linked List." << endl;
 	list.Sort_List(); //сортируем список
 	list.LinkedList_Output(fout); //выводим в файл сортированный спискок
+=======
+	list.Only_Procedural(fout); //вызов метод фильтрованного вывода
+>>>>>>> lab2.5
 
 	list.~LinkedList(); //вызвали деструктор
 	fout << "Empty container." << endl;

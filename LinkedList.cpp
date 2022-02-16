@@ -64,6 +64,7 @@ void Skobina::LinkedList::LinkedList_Output(ofstream& fout)
 	}
 }
 
+<<<<<<< HEAD
 void Skobina::LinkedList::Sort_List() //метод ссортировки
 {
 	if (SizeList < 2) //сортировать список из 1 элемента нет смысла
@@ -134,4 +135,19 @@ void Skobina::LinkedList::Swap(Node* first, Node* second)
 		first->Next->Prev = first;
 		return;
 	}
+=======
+void Skobina::LinkedList::Only_Procedural(ofstream& fout)
+{
+	Node* current = First;
+	fout << endl << "Only Procedural languages." << endl;
+
+	for (size_t i = 0; i < SizeList; i++)
+	{
+		fout << i + 1 << ": ";
+		current->language->Only_Procedural(fout);
+		current = current->Next;
+	}
+
+	fout << endl;
+>>>>>>> lab2.5
 }
