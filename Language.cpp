@@ -29,10 +29,7 @@ Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 	}
 	int state = stoi(temp);
 
-	if (fin.get() != '/n')
-	{
-		getline(fin, temp, '\n');
-	}
+	getline(fin, temp, '\n');
 
 	switch (state)
 	{

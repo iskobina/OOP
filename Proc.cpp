@@ -25,10 +25,7 @@ bool Skobina::Procedural::Input(ifstream& fin)
 
 	int state = stoi(temp);
 
-	if (fin.get() != '/n')
-	{
-		getline(fin, temp, '\n');
-	}
+	getline(fin, temp, '\n');
 
 	if (state > 0)
 	{
