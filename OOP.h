@@ -8,7 +8,7 @@ namespace Skobina
 	class Object_Oriented : public Language
 	{
 	public:
-		Object_Oriented() {/**/ }
+		Object_Oriented() {/**/ } // конструктор по умолчанию
 		bool Input(ifstream& fin);
 		void Output(ofstream& fout);
 	private:

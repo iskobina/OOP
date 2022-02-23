@@ -9,22 +9,25 @@ namespace Skobina
 	{
 		struct Node
 		{
-			Language* language;
+			Language* language; // структура узла в связном списке
 			Node* next;
 			Node* prev;
 		};
 	public:
-		Linked_List();
-		~Linked_List();
+		Linked_List(); // конструктор
+		~Linked_List(); // деструктор
+
 		void Linked_List_Input(ifstream& fin);
 		void Linked_List_Output(ofstream& fout);
-		void Sort_List();
 		void Only_Procedural(ofstream& fout);
+
+		void Sort_List(); // метод сортировки списка
 	private:
 		Node* head;
 		Node* tail;
 		size_t size_list;
-		void Swap(Node* first, Node* second);
+
+		void Swap(Node* first, Node* second); // вспомогательная функция сортировки списка
 	};
 }
 

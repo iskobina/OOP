@@ -11,25 +11,25 @@ Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 	Language* language;
 	string temp;
 	fin >> temp;
-	if (temp == "\0")
+	if (temp == "\0") // проверка на конец строки
 	{
 		return NULL;
 	}
-	if (temp.length() > 1)
+	if (temp.length() > 1) // проверка на длину строки
 	{
 		fin.get();
-		getline(fin, temp, '\n');
+		getline(fin, temp, '\n'); // пропуск оставшихся данных
 		return NULL;
 	}
-	if (!isdigit(int(unsigned char(temp.front()))))
+	if (!isdigit(int(unsigned char(temp.front())))) // проверка на ввод цифры
 	{
 		fin.get();
-		getline(fin, temp, '\n');
+		getline(fin, temp, '\n'); // пропуск оставшихся данных
 		return NULL;
 	}
 	int state = stoi(temp);
 
-	getline(fin, temp, '\n');
+	getline(fin, temp, '\n'); // пропуск оставшихся данных
 
 	switch (state)
 	{
@@ -44,7 +44,7 @@ Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 		break;
 	default:
 		fin.get();
-		getline(fin, temp, '\n');
+		getline(fin, temp, '\n'); // пропуск оставшихся данных
 		return NULL;
 	}
 	if (!language->Input(fin))
@@ -61,35 +61,35 @@ bool Skobina::Language::Input(ifstream& fin)
 {
 	string temp;
 	fin >> temp;
-	if (temp == "\0")
+	if (temp == "\0") // проверка на конец строки
 	{
 		return false;
 	}
-	if (temp.length() != 4)
+	if (temp.length() != 4) // проверка на длину строки
 	{
-		getline(fin, temp, '\n');
+		getline(fin, temp, '\n'); // пропуск оставшихся данных
 		return false;
 	}
 	for (auto iter = temp.begin(); iter != temp.end(); ++iter)
 	{
-		if (!isdigit(int(unsigned char(*iter))))
+		if (!isdigit(int(unsigned char(*iter)))) // проверка на ввод цифры
 		{
-			getline(fin, temp, '\n');
+			getline(fin, temp, '\n'); // пропуск оставшихся данных
 			return false;
 		}
 	}
 	year_of_development = stoul(temp);
 
 	fin >> temp;
-	if (temp == "\0")
+	if (temp == "\0") // проверка на конец строки
 	{
 		return false;
 	}
 	for (auto iter = temp.begin(); iter != temp.end(); ++iter)
 	{
-		if (!isdigit(int(unsigned char(*iter))))
+		if (!isdigit(int(unsigned char(*iter)))) // проверка на ввод цифры
 		{
-			getline(fin, temp, '\n');
+			getline(fin, temp, '\n'); // пропуск оставшихся данных
 			return false;
 		}
 	}

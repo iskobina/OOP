@@ -8,7 +8,7 @@ namespace Skobina
 	class Procedural : public Language
 	{
 	public:
-		Procedural() {/**/ }
+		Procedural() {/**/ } // конструктор по умолчанию
 		bool Input(ifstream& fin);
 		void Output(ofstream& fout);
 		void Only_Procedural(ofstream& fout);

@@ -1,13 +1,13 @@
 #include "LinkedList.h"
 
-Skobina::Linked_List::Linked_List()
+Skobina::Linked_List::Linked_List() // конструктор
 {
 	head = NULL;
 	tail = NULL;
 	size_list = 0;
 }
 
-Skobina::Linked_List::~Linked_List()
+Skobina::Linked_List::~Linked_List() // деструктор
 {
 	Node* temp = NULL;
 	while (tail != NULL)
@@ -27,7 +27,7 @@ void Skobina::Linked_List::Linked_List_Input(ifstream& fin)
 	{
 		temp = new Node;
 
-		temp->language = Language::Language_Input(fin);
+		temp->language = Language::Language_Input(fin); // заполнение блока данных
 		temp->next = NULL;
 		++size_list;
 
@@ -47,7 +47,7 @@ void Skobina::Linked_List::Linked_List_Input(ifstream& fin)
 
 void Skobina::Linked_List::Linked_List_Output(ofstream& fout)
 {
-	Node* current = head;
+	Node* current = head; // создание указателя на первый элемент
 	fout << "Container contains " << size_list << " elements." << endl;
 
 	for (size_t i = 0; i < size_list; i++)
@@ -87,9 +87,9 @@ void Skobina::Linked_List::Only_Procedural(ofstream& fout)
 	fout << endl;
 }
 
-void Skobina::Linked_List::Sort_List()
+void Skobina::Linked_List::Sort_List() // метод сортировки списка
 {
-	if (size_list < 2)
+	if (size_list < 2) // список с одним элементом не сортируется
 	{
 		return;
 	}
@@ -117,7 +117,7 @@ void Skobina::Linked_List::Sort_List()
 
 void Skobina::Linked_List::Swap(Node* first, Node* second)
 {
-	if ((first->prev == NULL) && (second->next == NULL))
+	if ((first->prev == NULL) && (second->next == NULL)) // если всего 2 элемента в списке
 	{
 		head = second;
 		tail = first;

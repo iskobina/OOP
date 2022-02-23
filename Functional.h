@@ -8,7 +8,7 @@ namespace Skobina
 	class Functional : public Language
 	{
 	public:
-		Functional() {/**/ }
+		Functional() {/**/ } // пустой конструктор
 		bool Input(ifstream& fin);
 		void Output(ofstream& fout);
 	private:
