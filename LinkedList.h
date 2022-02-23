@@ -27,7 +27,7 @@ namespace Skobina
 		Node* tail;
 		size_t size_list;
 
-		void Swap(Node* first, Node* second); // вспомогательна€ функци€ сортировки списка
+		void Swap(Node* first, Node* second); // вспомогательный метод сортировки списка
 	};
 }
 
