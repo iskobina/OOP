@@ -28,11 +28,11 @@ bool Skobina::Functional::Input(ifstream& fin)
 	int state = stoi(temp);
 	if (state > 0)
 	{
-		lazy_calculations = true;
+		LazyCalculations = true;
 	}
 	else
 	{
-		lazy_calculations = false;
+		LazyCalculations = false;
 	}
 
 	fin >> temp;
@@ -56,10 +56,10 @@ bool Skobina::Functional::Input(ifstream& fin)
 	switch (state)
 	{
 	case 1:
-		type = Functional::typification::STRICT;
+		Type = Functional::Typification::STRICT;
 		return true;
 	case 2:
-		type = Functional::typification::DYNAMIC;
+		Type = Functional::Typification::DYNAMIC;
 		return true;
 	default:
 		return false;
@@ -69,7 +69,7 @@ bool Skobina::Functional::Input(ifstream& fin)
 void Skobina::Functional::Output(ofstream& fout)
 {
 	fout << "It is Functional programming language: Support \"lazy\" calculations is ";
-	if (lazy_calculations)
+	if (LazyCalculations)
 	{
 		fout << "present, ";
 	}
@@ -77,17 +77,19 @@ void Skobina::Functional::Output(ofstream& fout)
 	{
 		fout << "missing, ";
 	}
+
 	fout << "Typification is ";
-	switch (type)
+	switch (Type)
 	{
-	case Functional::typification::STRICT:
+	case Functional::Typification::STRICT:
 		fout << "strict, ";
 		break;
-	case Functional::typification::DYNAMIC:
+	case Functional::Typification::DYNAMIC:
 		fout << "dynamic, ";
 		break;
 	default:
 		break;
 	}
+
 	Skobina::Language::Output(fout);
 }

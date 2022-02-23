@@ -8,57 +8,58 @@ bool Skobina::Object_Oriented::Input(ifstream& fin)
 		return false;
 	}
 
-	string temp;
-	fin >> temp;
-	if (temp == "\0") // проверка на конец строки
-	{
-		return false;
-	}
-	if (temp.length() > 1) // проверка на длину строки
-	{
-		return false;
-	}
-	if (!isdigit(int(unsigned char(temp.front())))) // проверка на ввод цифры
-	{
-		return false;
-	}
+	string TempString;
 
-	int state = stoi(temp);
-
-	getline(fin, temp, '\n'); // пропуск оставшихся данных
+	fin >> TempString;
+	if (TempString == "\0") // проверка на конец строки
+	{
+		return false;
+	}
+	if (TempString.length() > 1) // проверка на длину строки
+	{
+		return false;
+	}
+	if (!isdigit(int(unsigned char(TempString.front())))) // проверка на ввод цифры
+	{
+		return false;
+	}
+	int state = stoi(TempString);
+	getline(fin, TempString, '\n'); // пропуск оставшихся данных
 
 	switch (state)
 	{
 	case 1:
-		number = Object_Oriented::inheritance::SINGLE;
+		Number = Object_Oriented::Inheritance::SINGLE;
 		return true;
 	case 2:
-		number = Object_Oriented::inheritance::MULTIPLE;
+		Number = Object_Oriented::Inheritance::MULTIPLE;
 		return true;
 	case 3:
-		number = Object_Oriented::inheritance::INTERFACE;
+		Number = Object_Oriented::Inheritance::INTERFACE;
 		return true;
 	default:
 		return false;
 	}
 }
 
+
 void Skobina::Object_Oriented::Output(ofstream& fout)
 {
 	fout << "It is Object-oriented programming language: Inheritance is ";
-	switch (number)
+	switch (Number)
 	{
-	case Object_Oriented::inheritance::SINGLE:
+	case Object_Oriented::Inheritance::SINGLE:
 		fout << "single, ";
 		break;
-	case Object_Oriented::inheritance::MULTIPLE:
+	case Object_Oriented::Inheritance::MULTIPLE:
 		fout << "multiple, ";
 		break;
-	case Object_Oriented::inheritance::INTERFACE:
+	case Object_Oriented::Inheritance::INTERFACE:
 		fout << "interface, ";
 		break;
 	default:
 		break;
 	}
+
 	Skobina::Language::Output(fout);
 }

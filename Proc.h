@@ -9,11 +9,13 @@ namespace Skobina
 	{
 	public:
 		Procedural() {/**/ } // конструктор по умолчанию
-		bool Input(ifstream& fin);
-		void Output(ofstream& fout);
-		void Only_Procedural(ofstream& fout);
+
+		bool Input(ifstream& FileInput);
+		void Output(ofstream& FileOutput);
+		void Output_Only_Procedural(ofstream& FileOutput);
+
 	private:
-		bool abstract_type;
+		bool AbstractType;
 	};
 }
 

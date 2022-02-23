@@ -9,15 +9,17 @@ namespace Skobina
 	{
 	public:
 		Functional() {/**/ } // пустой конструктор
+
 		bool Input(ifstream& fin);
 		void Output(ofstream& fout);
+
 	private:
-		bool lazy_calculations;
-		enum typification
+		bool LazyCalculations;
+		enum Typification
 		{
 			STRICT,
 			DYNAMIC
-		} type;
+		} Type;
 	};
 }
 

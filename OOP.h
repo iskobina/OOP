@@ -9,15 +9,17 @@ namespace Skobina
 	{
 	public:
 		Object_Oriented() {/**/ } // конструктор по умолчанию
-		bool Input(ifstream& fin);
-		void Output(ofstream& fout);
+
+		bool Input(ifstream& FileInput);
+		void Output(ofstream& FileOutput);
+
 	private:
-		enum inheritance
+		enum Inheritance
 		{
 			SINGLE,
 			MULTIPLE,
 			INTERFACE
-		} number;
+		} Number;
 	};
 }
 
