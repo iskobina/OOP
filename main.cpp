@@ -31,20 +31,20 @@ int main(int argc, char* argv[])
 
 	cout << "Start" << endl;
 
-	LinkedList list;
-	list.LinkedList_Input(fin); //создание связного списка и его заполнение
+	Linked_List list;
+	list.Linked_List_Input(fin);
 	fout << "Filled container." << endl;
-	list.LinkedList_Output(fout); //вывод в файл
+	list.Linked_List_Output(fout);
 
 	fout << endl << "Sorted Linked List." << endl;
-	list.Sort_List(); //сортируем список
-	list.LinkedList_Output(fout); //выводим в файл сортированный список
+	list.Sort_List();
+	list.Linked_List_Output(fout);
 
-	list.Only_Procedural(fout); //вызов метод фильтрованного вывода
+	list.Only_Procedural(fout);
 
-	list.~LinkedList(); //вызвали деструктор
+	list.~Linked_List();
 	fout << "Empty container." << endl;
-	list.LinkedList_Output(fout); //вывод
+	list.Linked_List_Output(fout);
 
 	cout << "Stop" << endl;
 	return 0;

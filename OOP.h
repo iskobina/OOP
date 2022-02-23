@@ -1,4 +1,3 @@
-#pragma once
 #ifndef OOP_H
 #define OOP_H
 
@@ -6,11 +5,11 @@
 
 namespace Skobina
 {
-	class Object_oriented : public Language //класс является потомком "Языка"
+	class Object_Oriented : public Language
 	{
 	public:
-		Object_oriented() {/**/ } //пустой конструктор по умолчанию
-		bool Input(ifstream& fin); //метод класса
+		Object_Oriented() {/**/ }
+		bool Input(ifstream& fin);
 		void Output(ofstream& fout);
 	private:
 		enum inheritance

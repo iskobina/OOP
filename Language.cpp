@@ -31,10 +31,10 @@ Skobina::Language* Skobina::Language::Language_Input(ifstream& fin)
 	switch (state)
 	{
 	case 1:
-		language = new Proc; 
+		language = new Procedural;
 		break;
 	case 2:
-		language = new Object_oriented;
+		language = new Object_Oriented;
 		break;
 	case 3:
 		language = new Functional;
@@ -97,7 +97,12 @@ bool Skobina::Language::Input(ifstream& fin)
 void Skobina::Language::Output(ofstream& fout)
 {
 	fout << "Year of development = " << year_of_development
-	<< ", The number of references of this language on the Internet = " << reference << endl;
+		<< ", The number of references of this language on the Internet = " << reference << endl;
+}
+
+void Skobina::Language::Only_Procedural(ofstream& fout)
+{
+	fout << endl;
 }
 
 int Skobina::Language::Past_Years()
@@ -122,9 +127,4 @@ bool Skobina::Language::Compare(Language& second)
 		return false;
 	}
 	return Past_Years() < second.Past_Years();
-}
-
-void Skobina::Language::Only_Procedural(ofstream& fout)
-{
-	fout << endl;
 }

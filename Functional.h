@@ -1,4 +1,3 @@
-#pragma once
 #ifndef FUNCTIONAL_H
 #define FUNCTIONAL_H
 

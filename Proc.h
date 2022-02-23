@@ -1,18 +1,16 @@
-#pragma once
-#ifndef PROC_H
-#define PROC_H
+#ifndef PROCEDURAL_H
+#define PROCEDURAL_H
 
 #include "Language.h"
 
 namespace Skobina
 {
-	class Proc : public Language //класс наследует "язык"
+	class Procedural : public Language
 	{
 	public:
-		Proc() {/**/ } //пустой конструктор
+		Procedural() {/**/ }
 		bool Input(ifstream& fin);
 		void Output(ofstream& fout);
-
 		void Only_Procedural(ofstream& fout);
 	private:
 		bool abstract_type;

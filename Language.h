@@ -1,4 +1,3 @@
-#pragma once
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
@@ -11,19 +10,17 @@ namespace Skobina
 	class Language
 	{
 	protected:
-		Language() {/**/ } // пустой конструктор
+		Language() {/**/ }
 	public:
-		static Language* Language_Input(ifstream& fin); // метод получения данных об объекте
-		virtual bool Input(ifstream& fin); // метод чтения "год"
-		virtual void Output(ofstream& fout); // метод записи "год"
-
+		static Language* Language_Input(ifstream& fin);
+		virtual bool Input(ifstream& fin);
+		virtual void Output(ofstream& fout);
+		virtual void Only_Procedural(ofstream& fout);
 		int Past_Years();
 		bool Compare(Language& second);
-
-		virtual void Only_Procedural(ofstream& fout);
 	private:
-		unsigned short int year_of_development;
-		int reference;
+		unsigned int year_of_development;
+		unsigned long long int reference;
 	};
 }
 

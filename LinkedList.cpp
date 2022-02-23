@@ -1,151 +1,78 @@
 #include "LinkedList.h"
 
-Skobina::LinkedList::LinkedList() //конструктор по умолчанию
+Skobina::Linked_List::Linked_List()
 {
-	First = NULL;
-	Last = NULL;
-	SizeList = 0;
+	head = NULL;
+	tail = NULL;
+	size_list = 0;
 }
 
-Skobina::LinkedList::~LinkedList() //деструктор
+Skobina::Linked_List::~Linked_List()
 {
-	Node* Temp = NULL;
-	while (Last != NULL)
+	Node* temp = NULL;
+	while (tail != NULL)
 	{
-		Temp = Last->Prev;
-		delete Last;
-		Last = Temp;
-		--SizeList;
+		temp = tail->prev;
+		delete tail;
+		tail = temp;
+		--size_list;
 	}
-	First = Temp;
+	head = temp;
 }
 
-
-void Skobina::LinkedList::LinkedList_Input(ifstream& fin)
+void Skobina::Linked_List::Linked_List_Input(ifstream& fin)
 {
-	Node* Temp;
+	Node* temp;
 	while (!fin.eof())
 	{
-		Temp = new Node;
+		temp = new Node;
 
-		Temp->language = Language::Language_Input(fin); //заполняем данные
-		Temp->Next = NULL;
-		++SizeList;
+		temp->language = Language::Language_Input(fin);
+		temp->next = NULL;
+		++size_list;
 
-		if (First == NULL)
+		if (head == NULL)
 		{
-			Temp->Prev = NULL;
-			First = Last = Temp;
+			temp->prev = NULL;
+			head = tail = temp;
 		}
 		else
 		{
-			Temp->Prev = Last;
-			Last->Next = Temp;
-			Last = Temp;
+			temp->prev = tail;
+			tail->next = temp;
+			tail = temp;
 		}
 	}
 }
 
-void Skobina::LinkedList::LinkedList_Output(ofstream& fout)
+void Skobina::Linked_List::Linked_List_Output(ofstream& fout)
 {
-	Node* Temp = First; //создаем указатель на первый элемент
-	fout << "Container contains " << SizeList << " elements." << endl;
+	Node* current = head;
+	fout << "Container contains " << size_list << " elements." << endl;
 
-	for (size_t i = 0; i < SizeList; i++)
+	for (size_t i = 0; i < size_list; i++)
 	{
 		fout << i + 1 << ": ";
-		if (Temp->language == NULL)
+		if (current->language == NULL)
 		{
 			fout << "Error reading data! Expected other values in the string." << endl;
 		}
 		else
 		{
-			Temp->language->Output(fout);
+			current->language->Output(fout);
 			fout << "The number of years that have passed since the year the language was created = "
-				<< Temp->language->Past_Years() << endl << endl;
+				<< current->language->Past_Years() << endl;
 		}
-		Temp = Temp->Next;
+		current = current->next;
 	}
 }
 
-void Skobina::LinkedList::Sort_List() //метод ссортировки
+void Skobina::Linked_List::Only_Procedural(ofstream& fout)
 {
-	if (SizeList < 2) //сортировать список из 1 элемента нет смысла
-		return;
-
-	Node* current = First;
-
-	bool flag = false;
-
-	do
-	{
-		current = First;
-		flag = false;
-		for (size_t i = 0; i < (SizeList - 1); ++i)
-		{
-			if (current->language->Compare(*current->Next->language)) //если функция compare возвращает true (если необходимо поменять местами)
-			{
-				Swap(current, current->Next); //передаем текущий и следующий элемент
-				flag = true;
-			}
-			else
-			{
-				current = current->Next; //переход на следующий элемент
-			}
-		}
-	} while (flag);
-}
-
-void Skobina::LinkedList::Swap(Node* first, Node* second)
-{
-	if ((first->Prev == NULL) && (second->Next == NULL)) //если всего 2 элемента в списке
-	{
-		First = second;
-		Last = first;
-		first->Prev = second;
-		second->Next = first;
-		first->Next = NULL;
-		second->Prev = NULL;
-		return;
-	}
-	if ((first->Prev == NULL) && (second->Next != NULL)) //если в списке более 2-ух элементов, и мы рассматриваем 1 и 2 элементы
-	{
-		first->Next = second->Next;
-		first->Prev = second;
-		second->Next->Prev = first;
-		second->Next = first;
-		second->Prev = NULL;
-		First = second;
-		return;
-	}
-	if ((first->Prev != NULL) && (second->Next == NULL)) //если в списке более 2-ух элементов, и мы рассматриваем предпоследний и последний
-	{
-		second->Prev = first->Prev;
-		first->Prev = second;
-		first->Next = NULL;
-		second->Next = first;
-		second->Prev->Next = second;
-		Last = first;
-		return;
-	}
-	if ((first->Prev != NULL) && (second->Next != NULL)) //если в списке более 2-ух элементов и мы где-то по-середине
-	{
-		first->Next = second->Next;
-		second->Prev = first->Prev;
-		second->Next = first;
-		first->Prev = second;
-		second->Prev->Next = second;
-		first->Next->Prev = first;
-		return;
-	}
-}
-
-void Skobina::LinkedList::Only_Procedural(ofstream& fout)
-{
-	Node* current = First;
+	Node* current = head;
 	fout << endl << "Only Procedural languages." << endl;
 
-	for (size_t i = 0; i < SizeList; i++)
+	for (size_t i = 0; i < size_list; i++)
 	{
 		fout << i + 1 << ": ";
 		if (current->language == NULL)
@@ -154,8 +81,80 @@ void Skobina::LinkedList::Only_Procedural(ofstream& fout)
 			continue;
 		}
 		current->language->Only_Procedural(fout);
-		current = current->Next;
+		current = current->next;
 	}
 
 	fout << endl;
+}
+
+void Skobina::Linked_List::Sort_List()
+{
+	if (size_list < 2)
+	{
+		return;
+	}
+
+	Node* current = head;
+	bool flag = false;
+	do
+	{
+		current = head;
+		flag = false;
+		for (size_t i = 0; i < (size_list - 1); ++i)
+		{
+			if (current->language->Compare(*current->next->language))
+			{
+				Swap(current, current->next);
+				flag = true;
+			}
+			else
+			{
+				current = current->next;
+			}
+		}
+	} while (flag);
+}
+
+void Skobina::Linked_List::Swap(Node* first, Node* second)
+{
+	if ((first->prev == NULL) && (second->next == NULL))
+	{
+		head = second;
+		tail = first;
+		first->prev = second;
+		second->next = first;
+		first->next = NULL;
+		second->prev = NULL;
+		return;
+	}
+	if ((first->prev == NULL) && (second->next != NULL))
+	{
+		first->next = second->next;
+		first->prev = second;
+		second->next->prev = first;
+		second->next = first;
+		second->prev = NULL;
+		head = second;
+		return;
+	}
+	if ((first->prev != NULL) && (second->next == NULL))
+	{
+		second->prev = first->prev;
+		first->prev = second;
+		first->next = NULL;
+		second->next = first;
+		second->prev->next = second;
+		tail = first;
+		return;
+	}
+	if ((first->prev != NULL) && (second->next != NULL))
+	{
+		first->next = second->next;
+		second->prev = first->prev;
+		second->next = first;
+		first->prev = second;
+		second->prev->next = second;
+		first->next->prev = first;
+		return;
+	}
 }

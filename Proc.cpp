@@ -1,7 +1,7 @@
 #include "Proc.h"
 #include <string>
 
-bool Skobina::Proc::Input(ifstream& fin) //метод чтение из файла
+bool Skobina::Procedural::Input(ifstream& fin)
 {
 	if (!Skobina::Language::Input(fin))
 	{
@@ -35,7 +35,7 @@ bool Skobina::Proc::Input(ifstream& fin) //метод чтение из файла
 	return true;
 }
 
-void Skobina::Proc::Output(ofstream& fout)
+void Skobina::Procedural::Output(ofstream& fout)
 {
 	fout << "It is Procedural programming language: Abstract data types is ";
 	if (abstract_type)
@@ -46,10 +46,10 @@ void Skobina::Proc::Output(ofstream& fout)
 	{
 		fout << "missing, ";
 	}
-	Skobina::Language::Output(fout); //записали "год"
+	Skobina::Language::Output(fout);
 }
 
-void Skobina::Proc::Only_Procedural(ofstream& fout)
+void Skobina::Procedural::Only_Procedural(ofstream& fout)
 {
-	Skobina::Proc::Output(fout);
+	Skobina::Procedural::Output(fout);
 }

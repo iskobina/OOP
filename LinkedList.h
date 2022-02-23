@@ -1,4 +1,3 @@
-#pragma once
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
@@ -6,29 +5,25 @@
 
 namespace Skobina
 {
-	class LinkedList
+	class Linked_List
 	{
-		struct Node //структура узла в связном списке
+		struct Node
 		{
 			Language* language;
-			Node* Next;
-			Node* Prev;
+			Node* next;
+			Node* prev;
 		};
 	public:
-		LinkedList(); //конструктор
-		~LinkedList(); //деструктор
-
-		void LinkedList_Input(ifstream& fin);
-		void LinkedList_Output(ofstream& fout);
-
-		void Sort_List(); //метод сортировки
-
+		Linked_List();
+		~Linked_List();
+		void Linked_List_Input(ifstream& fin);
+		void Linked_List_Output(ofstream& fout);
+		void Sort_List();
 		void Only_Procedural(ofstream& fout);
 	private:
-		Node* First;
-		Node* Last;
-		size_t SizeList;
-
+		Node* head;
+		Node* tail;
+		size_t size_list;
 		void Swap(Node* first, Node* second);
 	};
 }
