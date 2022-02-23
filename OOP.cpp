@@ -1,23 +1,42 @@
 #include "OOP.h"
+#include <string>
 
-void Skobina::Object_oriented::Input(ifstream& fin) //метод чтения данных из файла
+bool Skobina::Object_oriented::Input(ifstream& fin) //метод чтения данных из файла
 {
-	Skobina::Language::Input(fin); //получили "год"
-	unsigned short int temp;
+	if (!Skobina::Language::Input(fin))
+	{
+		return false;
+	}
+
+	string temp;
 	fin >> temp;
-	switch (temp)
+	if (temp == "\0")
+	{
+		return false;
+	}
+	if (temp.length() > 1)
+	{
+		return false;
+	}
+	if (!isdigit(int(unsigned char(temp.front()))))
+	{
+		return false;
+	}
+
+	int state = stoi(temp);
+	switch (state)
 	{
 	case 1:
 		number = Object_oriented::inheritance::SINGLE;
-		break;
+		return true;
 	case 2:
 		number = Object_oriented::inheritance::MULTIPLE;
-		break;
+		return true;
 	case 3:
 		number = Object_oriented::inheritance::INTERFACE;
-		break;
+		return true;
 	default:
-		break;
+		return false;
 	}
 }
 

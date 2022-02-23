@@ -14,7 +14,7 @@ namespace Skobina
 		Language() {/**/ } // пустой конструктор
 	public:
 		static Language* Language_Input(ifstream& fin); // метод получения данных об объекте
-		virtual void Input(ifstream& fin); // метод чтения "год"
+		virtual bool Input(ifstream& fin); // метод чтения "год"
 		virtual void Output(ofstream& fout); // метод записи "год"
 
 		int Past_Years();

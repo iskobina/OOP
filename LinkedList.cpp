@@ -28,10 +28,8 @@ void Skobina::LinkedList::LinkedList_Input(ifstream& fin)
 	{
 		Temp = new Node;
 
-		Temp->Next = NULL;
-
 		Temp->language = Language::Language_Input(fin); //заполняем данные
-
+		Temp->Next = NULL;
 		++SizeList;
 
 		if (First == NULL)
@@ -56,9 +54,16 @@ void Skobina::LinkedList::LinkedList_Output(ofstream& fout)
 	for (size_t i = 0; i < SizeList; i++)
 	{
 		fout << i + 1 << ": ";
-		Temp->language->Output(fout);
-		fout << "The number of years that have passed since the year the language was created = "
-			<< Temp->language->Past_Years() << endl << endl;
+		if (Temp->language == NULL)
+		{
+			fout << "Error reading data! Expected other values in the string." << endl;
+		}
+		else
+		{
+			Temp->language->Output(fout);
+			fout << "The number of years that have passed since the year the language was created = "
+				<< Temp->language->Past_Years() << endl << endl;
+		}
 		Temp = Temp->Next;
 	}
 }
@@ -143,6 +148,11 @@ void Skobina::LinkedList::Only_Procedural(ofstream& fout)
 	for (size_t i = 0; i < SizeList; i++)
 	{
 		fout << i + 1 << ": ";
+		if (current->language == NULL)
+		{
+			fout << endl;
+			continue;
+		}
 		current->language->Only_Procedural(fout);
 		current = current->Next;
 	}

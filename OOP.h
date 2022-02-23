@@ -10,7 +10,7 @@ namespace Skobina
 	{
 	public:
 		Object_oriented() {/**/ } //пустой конструктор по умолчанию
-		void Input(ifstream& fin); //метод класса
+		bool Input(ifstream& fin); //метод класса
 		void Output(ofstream& fout);
 	private:
 		enum inheritance

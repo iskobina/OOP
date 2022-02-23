@@ -1,9 +1,38 @@
 #include "Proc.h"
+#include <string>
 
-void Skobina::Proc::Input(ifstream& fin) //метод чтение из файла
+bool Skobina::Proc::Input(ifstream& fin) //метод чтение из файла
 {
-	Skobina::Language::Input(fin); //считали "год"
-	fin >> abstract_type;
+	if (!Skobina::Language::Input(fin))
+	{
+		return false;
+	}
+
+	string temp;
+	fin >> temp;
+	if (temp == "\0")
+	{
+		return false;
+	}
+	if (temp.length() > 1)
+	{
+		return false;
+	}
+	if (!isdigit(int(unsigned char(temp.front()))))
+	{
+		return false;
+	}
+
+	int state = stoi(temp);
+	if (state > 0)
+	{
+		abstract_type = true;
+	}
+	else
+	{
+		abstract_type = false;
+	}
+	return true;
 }
 
 void Skobina::Proc::Output(ofstream& fout)

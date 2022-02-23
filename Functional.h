@@ -10,7 +10,7 @@ namespace Skobina
 	{
 	public:
 		Functional() {/**/ }
-		void Input(ifstream& fin);
+		bool Input(ifstream& fin);
 		void Output(ofstream& fout);
 	private:
 		bool lazy_calculations;
