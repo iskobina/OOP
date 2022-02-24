@@ -1,32 +1,33 @@
 #include "Functional.h"
 #include <string>
 
-bool Skobina::Functional::Input(ifstream& fin)
+bool Skobina::Functional::Input(ifstream& FileInput)
 {
-	if (!Skobina::Language::Input(fin)) // проверка на корректность общих данных
+	if (!Skobina::Language::Input(FileInput)) // проверка на корректность общих данных
 	{
 		return false;
 	}
 
-	string temp;
-	fin >> temp;
-	if (temp == "\0") // проверка на конец строки
+	string TempString;
+
+	FileInput >> TempString;
+	if (TempString == "\0") // проверка на конец строки
 	{
 		return false;
 	}
-	if (temp.length() > 1) // проверка на длину строки
+	if (TempString.length() > 1) // проверка на длину строки
 	{
-		getline(fin, temp, '\n'); // пропуск оставшихся данных
+		getline(FileInput, TempString, '\n'); // пропуск оставшихся данных
 		return false;
 	}
-	if (!isdigit(int(unsigned char(temp.front())))) // проверка на ввод цифры
+	if (!isdigit(int(unsigned char(TempString.front())))) // проверка на ввод цифры
 	{
-		getline(fin, temp, '\n'); // пропуск оставшихся данных
+		getline(FileInput, TempString, '\n'); // пропуск оставшихся данных
 		return false;
 	}
 
-	int state = stoi(temp);
-	if (state > 0)
+	int State = stoi(TempString);
+	if (State > 0)
 	{
 		LazyCalculations = true;
 	}
@@ -35,25 +36,25 @@ bool Skobina::Functional::Input(ifstream& fin)
 		LazyCalculations = false;
 	}
 
-	fin >> temp;
-	if (temp == "\0") // проверка на конец строки
+	FileInput >> TempString;
+	if (TempString == "\0") // проверка на конец строки
 	{
 		return false;
 	}
-	if (temp.length() > 1) // проверка на длину строки
+	if (TempString.length() > 1) // проверка на длину строки
 	{
 		return false;
 	}
-	if (!isdigit(int(unsigned char(temp.front())))) // проверка на ввод цифры
+	if (!isdigit(int(unsigned char(TempString.front())))) // проверка на ввод цифры
 	{
 		return false;
 	}
 
-	state = stoi(temp);
+	State = stoi(TempString);
 
-	getline(fin, temp, '\n'); // пропуск оставшихся данных
+	getline(FileInput, TempString, '\n'); // пропуск оставшихся данных
 
-	switch (state)
+	switch (State)
 	{
 	case 1:
 		Type = Functional::Typification::STRICT;
@@ -66,30 +67,31 @@ bool Skobina::Functional::Input(ifstream& fin)
 	}
 }
 
-void Skobina::Functional::Output(ofstream& fout)
+
+void Skobina::Functional::Output(ofstream& FileOutput)
 {
-	fout << "It is Functional programming language: Support \"lazy\" calculations is ";
+	FileOutput << "It is Functional programming language: Support \"lazy\" calculations is ";
 	if (LazyCalculations)
 	{
-		fout << "present, ";
+		FileOutput << "present, ";
 	}
 	else
 	{
-		fout << "missing, ";
+		FileOutput << "missing, ";
 	}
 
-	fout << "Typification is ";
+	FileOutput << "Typification is ";
 	switch (Type)
 	{
 	case Functional::Typification::STRICT:
-		fout << "strict, ";
+		FileOutput << "strict, ";
 		break;
 	case Functional::Typification::DYNAMIC:
-		fout << "dynamic, ";
+		FileOutput << "dynamic, ";
 		break;
 	default:
 		break;
 	}
 
-	Skobina::Language::Output(fout);
+	Skobina::Language::Output(FileOutput);
 }

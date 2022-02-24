@@ -8,10 +8,10 @@ namespace Skobina
 	class Functional : public Language
 	{
 	public:
-		Functional() {/**/ } // пустой конструктор
+		Functional() {/**/ } // конструктор по умолчанию
 
-		bool Input(ifstream& fin);
-		void Output(ofstream& fout);
+		bool Input(ifstream& FileInput);
+		void Output(ofstream& FileOutput);
 
 	private:
 		bool LazyCalculations;

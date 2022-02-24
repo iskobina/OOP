@@ -1,16 +1,16 @@
 #include "OOP.h"
 #include <string>
 
-bool Skobina::Object_Oriented::Input(ifstream& fin)
+bool Skobina::Object_Oriented::Input(ifstream& FileInput)
 {
-	if (!Skobina::Language::Input(fin)) // проверка на корректность общих данных
+	if (!Skobina::Language::Input(FileInput)) // проверка на корректность общих данных
 	{
 		return false;
 	}
 
 	string TempString;
 
-	fin >> TempString;
+	FileInput >> TempString;
 	if (TempString == "\0") // проверка на конец строки
 	{
 		return false;
@@ -24,7 +24,8 @@ bool Skobina::Object_Oriented::Input(ifstream& fin)
 		return false;
 	}
 	int state = stoi(TempString);
-	getline(fin, TempString, '\n'); // пропуск оставшихся данных
+
+	getline(FileInput, TempString, '\n'); // пропуск оставшихся данных
 
 	switch (state)
 	{
@@ -43,23 +44,23 @@ bool Skobina::Object_Oriented::Input(ifstream& fin)
 }
 
 
-void Skobina::Object_Oriented::Output(ofstream& fout)
+void Skobina::Object_Oriented::Output(ofstream& FileOutput)
 {
-	fout << "It is Object-oriented programming language: Inheritance is ";
+	FileOutput << "It is Object-oriented programming language: Inheritance is ";
 	switch (Number)
 	{
 	case Object_Oriented::Inheritance::SINGLE:
-		fout << "single, ";
+		FileOutput << "single, ";
 		break;
 	case Object_Oriented::Inheritance::MULTIPLE:
-		fout << "multiple, ";
+		FileOutput << "multiple, ";
 		break;
 	case Object_Oriented::Inheritance::INTERFACE:
-		fout << "interface, ";
+		FileOutput << "interface, ";
 		break;
 	default:
 		break;
 	}
 
-	Skobina::Language::Output(fout);
+	Skobina::Language::Output(FileOutput);
 }

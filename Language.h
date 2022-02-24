@@ -12,16 +12,16 @@ namespace Skobina
 	protected:
 		Language() {/**/ } // пустой конструктор
 	public:
-		static Language* Language_Input(ifstream& fin); // метод получения данных об объекте
-		virtual bool Input(ifstream& fin); // метод чтения
-		virtual void Output(ofstream& fout); // метод записи
-		virtual void Only_Procedural(ofstream& fout); // метод фильтрованного вывода
+		static Language* Language_Input(ifstream& FileInput); // метод получения данных об объекте
+		virtual bool Input(ifstream& FileInput); // метод чтения
+		virtual void Output(ofstream& FileOutput); // метод записи
+		virtual void Output_Only_Procedural(ofstream& FileOutput); // метод фильтрованного вывода
 
 		int Past_Years();
-		bool Compare(Language& second);
+		bool Compare(Language& Second);
 	private:
-		unsigned int year_of_development;
-		unsigned long long int reference;
+		unsigned int YearOfDevelopment;
+		unsigned long long int Reference;
 	};
 }
 
