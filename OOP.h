@@ -14,9 +14,9 @@ namespace Skobina
 		void Output(ofstream& FileOutput);
 
 		virtual void Multi_Method(Language* Other, ofstream& FileOutput);
-		virtual void Multi_Method_Procedural(ofstream& FileOutput);
-		virtual void Multi_Method_OOP(ofstream& FileOutput);
-		virtual void Multi_Method_Functional(ofstream& FileOutput);
+		virtual void Multi_Method_First_Obj_Procedural(ofstream& FileOutput);
+		virtual void Multi_Method_First_Obj_OOP(ofstream& FileOutput);
+		virtual void Multi_Method_First_Obj_Functional(ofstream& FileOutput);
 
 	private:
 		enum Inheritance

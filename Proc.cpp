@@ -62,23 +62,23 @@ void Skobina::Procedural::Output_Only_Procedural(ofstream& FileOutput)
 
 void Skobina::Procedural::Multi_Method(Language* Other, ofstream& FileOutput)
 {
-	Other->Multi_Method_Procedural(FileOutput);
+	Other->Multi_Method_First_Obj_Procedural(FileOutput);
 }
 
 
-void Skobina::Procedural::Multi_Method_Procedural(ofstream& FileOutput)
+void Skobina::Procedural::Multi_Method_First_Obj_Procedural(ofstream& FileOutput)
 {
 	FileOutput << "Procedural and Procedural." << endl;
 }
 
 
-void Skobina::Procedural::Multi_Method_OOP(ofstream& FileOutput)
+void Skobina::Procedural::Multi_Method_First_Obj_OOP(ofstream& FileOutput)
 {
 	FileOutput << "OOP and Procedural." << endl;
 }
 
 
-void Skobina::Procedural::Multi_Method_Functional(ofstream& FileOutput)
+void Skobina::Procedural::Multi_Method_First_Obj_Functional(ofstream& FileOutput)
 {
 	FileOutput << "Functional and Procedural." << endl;
 }
