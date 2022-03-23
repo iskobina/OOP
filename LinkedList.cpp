@@ -168,3 +168,24 @@ void Skobina::Linked_List::Swap(Node* First, Node* Second)
 		return;
 	}
 }
+
+
+void Skobina::Linked_List::Multi_Method(ofstream& FileOutput)
+{
+	Node* TempNodeFirst = Head;
+	Node* TempNodeSecond = TempNodeFirst->Next;
+
+	FileOutput << endl << "Multimethod." << endl;
+	for (size_t i = 0; i < SizeLinkedList - 1; i++)
+	{
+		for (size_t j = i + 1; j < SizeLinkedList; j++)
+		{
+			TempNodeFirst->Lang->Multi_Method(TempNodeSecond->Lang, FileOutput);
+			TempNodeFirst->Lang->Output(FileOutput);
+			TempNodeSecond->Lang->Output(FileOutput);
+			TempNodeSecond = TempNodeSecond->Next;
+		}
+		TempNodeFirst = TempNodeFirst->Next;
+		TempNodeSecond = TempNodeFirst->Next;
+	}
+}

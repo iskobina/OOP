@@ -41,6 +41,8 @@ int main(int argc, char* argv[])
 	list.Sort_Linked_List(); // сортировка списка
 	list.Linked_List_Output(FileOutput); // вывод в файл отсортированного списка
 
+	list.Multi_Method(FileOutput);
+
 	list.Linked_List_Output_Only_Procedural(FileOutput); // фильтрованный вывод в файл
 
 	list.~Linked_List(); // вызов деструктора

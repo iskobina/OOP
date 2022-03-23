@@ -64,3 +64,27 @@ void Skobina::Object_Oriented::Output(ofstream& FileOutput)
 
 	Skobina::Language::Output(FileOutput);
 }
+
+
+void Skobina::Object_Oriented::Multi_Method(Language* Other, ofstream& FileOutput)
+{
+	Other->Multi_Method_OOP(FileOutput);
+}
+
+
+void Skobina::Object_Oriented::Multi_Method_Procedural(ofstream& FileOutput)
+{
+	FileOutput << "Procedural and OOP." << endl;
+}
+
+
+void Skobina::Object_Oriented::Multi_Method_OOP(ofstream& FileOutput)
+{
+	FileOutput << "OOP and OOP." << endl;
+}
+
+
+void Skobina::Object_Oriented::Multi_Method_Functional(ofstream& FileOutput)
+{
+	FileOutput << "Functional and OOP." << endl;
+}

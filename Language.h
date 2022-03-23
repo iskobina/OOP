@@ -19,6 +19,11 @@ namespace Skobina
 
 		int Past_Years();
 		bool Compare(Language& Second);
+
+		virtual void Multi_Method(Language* Other, ofstream& FileOutput) = 0;
+		virtual void Multi_Method_Procedural(ofstream& FileOutput) = 0;
+		virtual void Multi_Method_OOP(ofstream& FileOutput) = 0;
+		virtual void Multi_Method_Functional(ofstream& FileOutput) = 0;
 	private:
 		unsigned int YearOfDevelopment;
 		unsigned long long int Reference;

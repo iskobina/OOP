@@ -13,6 +13,11 @@ namespace Skobina
 		bool Input(ifstream& FileInput);
 		void Output(ofstream& FileOutput);
 
+		virtual void Multi_Method(Language* Other, ofstream& FileOutput);
+		virtual void Multi_Method_Procedural(ofstream& FileOutput);
+		virtual void Multi_Method_OOP(ofstream& FileOutput);
+		virtual void Multi_Method_Functional(ofstream& FileOutput);
+
 	private:
 		enum Inheritance
 		{

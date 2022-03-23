@@ -22,6 +22,8 @@ namespace Skobina
 		void Linked_List_Output_Only_Procedural(ofstream& FileOutput);
 
 		void Sort_Linked_List(); // метод сортировки списка
+
+		void Multi_Method(ofstream& FileOutput);
 	private:
 		Node* Head;
 		Node* Tail;
