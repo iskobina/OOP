@@ -43,15 +43,15 @@ void Skobina::Object_oriented::Output(ofstream& fout)
 
 void Skobina::Object_oriented::Multi_Method(Language* other, ofstream& fout)
 {
-	other->Multi_Method_OOP(fout);
+	other->Multi_Method_First_Obj_OOP(fout);
 }
 
-void Skobina::Object_oriented::Multi_Method_OOP(ofstream& fout)
+void Skobina::Object_oriented::Multi_Method_First_Obj_OOP(ofstream& fout)
 {
 	fout << "OOP and OOP." << endl;
 }
 
-void Skobina::Object_oriented::Multi_Method_Proc(ofstream& fout)
+void Skobina::Object_oriented::Multi_Method_First_Obj_Proc(ofstream& fout)
 {
 	fout << "Procedural and OOP." << endl;
 }

@@ -18,8 +18,8 @@ namespace Skobina
 		virtual void Output(ofstream& fout); // метод записи "год"
 
 		virtual void Multi_Method(Language* other, ofstream& fout) = 0;
-		virtual void Multi_Method_Proc(ofstream& fout) = 0;
-		virtual void Multi_Method_OOP(ofstream& fout) = 0;
+		virtual void Multi_Method_First_Obj_Proc(ofstream& fout) = 0;
+		virtual void Multi_Method_First_Obj_OOP(ofstream& fout) = 0;
 	private:
 		unsigned short int year_of_development;
 	};

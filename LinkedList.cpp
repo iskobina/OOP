@@ -70,7 +70,7 @@ void Skobina::LinkedList::Multi_Method(ofstream& fout)
 	{
 		for (size_t j = i + 1; j < SizeList; j++)
 		{
-			current_first->language->Multi_Method(current_second->language, fout);
+			current_first->language->Multi_Method(current_second->language, fout); //вывод одного из 4 варианта
 			current_first->language->Output(fout);
 			current_second->language->Output(fout);
 			current_second = current_second->Next;

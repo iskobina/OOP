@@ -22,15 +22,15 @@ void Skobina::Proc::Output(ofstream& fout)
 
 void Skobina::Proc::Multi_Method(Language* other, ofstream& fout)
 {
-	other->Multi_Method_Proc(fout);
+	other->Multi_Method_First_Obj_Proc(fout);
 }
 
-void Skobina::Proc::Multi_Method_Proc(ofstream& fout)
+void Skobina::Proc::Multi_Method_First_Obj_Proc(ofstream& fout)
 {
 	fout << "Procedural and Procedural." << endl;
 }
 
-void Skobina::Proc::Multi_Method_OOP(ofstream& fout)
+void Skobina::Proc::Multi_Method_First_Obj_OOP(ofstream& fout)
 {
 	fout << "OOP and Procedural." << endl;
 }
