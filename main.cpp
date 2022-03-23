@@ -24,6 +24,10 @@ int main(int argc, char* argv[])
 	fout << "Filled container." << endl;
 	list.LinkedList_Output(fout); //вывод в файл
 
+	fout << endl;
+	list.Multi_Method(fout);
+	fout << endl;
+
 	list.~LinkedList(); //вызвали деструктор
 	fout << "Empty container." << endl;
 	list.LinkedList_Output(fout); //вывод

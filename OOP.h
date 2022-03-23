@@ -12,6 +12,10 @@ namespace Skobina
 		Object_oriented() {/**/ } //пустой конструктор по умолчанию
 		void Input(ifstream& fin); //метод класса
 		void Output(ofstream& fout);
+
+		virtual void Multi_Method(Language* other, ofstream& fout);
+		virtual void Multi_Method_Proc(ofstream& fout);
+		virtual void Multi_Method_OOP(ofstream& fout);
 	private:
 		enum inheritance
 		{

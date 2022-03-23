@@ -19,3 +19,18 @@ void Skobina::Proc::Output(ofstream& fout)
 	}
 	Skobina::Language::Output(fout); //записали "год"
 }
+
+void Skobina::Proc::Multi_Method(Language* other, ofstream& fout)
+{
+	other->Multi_Method_Proc(fout);
+}
+
+void Skobina::Proc::Multi_Method_Proc(ofstream& fout)
+{
+	fout << "Procedural and Procedural." << endl;
+}
+
+void Skobina::Proc::Multi_Method_OOP(ofstream& fout)
+{
+	fout << "OOP and Procedural." << endl;
+}

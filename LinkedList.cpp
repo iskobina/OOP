@@ -20,8 +20,6 @@ Skobina::LinkedList::~LinkedList() //деструктор
 	First = Temp;
 }
 
-
-
 void Skobina::LinkedList::LinkedList_Input(ifstream& fin)
 {
 	Node* Temp;
@@ -59,5 +57,25 @@ void Skobina::LinkedList::LinkedList_Output(ofstream& fout)
 		fout << i + 1 << ": ";
 		Temp->language->Output(fout);
 		Temp = Temp->Next;
+	}
+}
+
+void Skobina::LinkedList::Multi_Method(ofstream& fout)
+{
+	Node* current_first = First;
+	Node* current_second = current_first->Next;
+
+	fout << "Multimethod." << endl;
+	for (size_t i = 0; i < SizeList - 1; i++)
+	{
+		for (size_t j = i + 1; j < SizeList; j++)
+		{
+			current_first->language->Multi_Method(current_second->language, fout);
+			current_first->language->Output(fout);
+			current_second->language->Output(fout);
+			current_second = current_second->Next;
+		}
+		current_first = current_first->Next;
+		current_second = current_first->Next;
 	}
 }

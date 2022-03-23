@@ -20,6 +20,8 @@ namespace Skobina
 
 		void LinkedList_Input(ifstream& fin);
 		void LinkedList_Output(ofstream& fout);
+
+		void Multi_Method(ofstream& fout);
 	private:
 		Node* First;
 		Node* Last;
