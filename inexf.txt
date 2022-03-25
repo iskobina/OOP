@@ -1,0 +1,1 @@
+It is Functional programming language: Support "lazy" calculations is missing, Typification is strict, Year of development = 2000, The number of references of this language on the Internet = 987

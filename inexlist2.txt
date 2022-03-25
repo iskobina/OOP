@@ -1,0 +1,10 @@
+
+Only Procedural languages.
+1: 
+2: It is Procedural programming language: Abstract data types is missing, Year of development = 1990, The number of references of this language on the Internet = 987
+3: It is Procedural programming language: Abstract data types is present, Year of development = 1979, The number of references of this language on the Internet = 456
+4: 
+5: 
+6: 
+7: 
+
